@@ -1,0 +1,28 @@
+<script>
+    function move(){
+        this.ondragstart=function(e){
+            offsetX= e.offsetX;
+            offsetY= e.offsetY;
+            console.log(e.target.id+'开始拖动');
+            //记录刚一拖动时，鼠标在飞机上的偏移量
+            console.log(offsetX+"-"+offsetY);
+        };
+        this.ondrag=function(e){
+            console.log(e.target.id+'拖动中');
+            var x= e.pageX;
+            var y= e.pageY;
+            console.log(x+'-'+y);
+            //drag事件最后一刻，无法读取鼠标的坐标，pageX和pageY都变为0
+            if(x==0 && y==0){
+                return; //不处理拖动最后一刻X和Y都为0的情形
+            }
+            x-=offsetX;
+            y-=offsetY;
+            e.target.style.left=x+'px';
+            e.target.style.top=y+'px';
+        };
+        this.ondragend=function(e){
+            console.log(e.target.id+'拖动结束');
+        }
+    }
+</script>
