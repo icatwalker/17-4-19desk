@@ -3,13 +3,18 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="mycss/mycss.css"/>
+    <link rel="stylesheet" href="mycss/desk1.css"/>
 </head>
 <body>
 <div class="container">
     <div id="workSpace">
+        <img src="img/chair.png" alt="" id="motherBackground"/>
         <img src="img/chair.png" alt="" id="mother"/>
         <div id="chairsArea">
+
+            <div class="title">
+                会议区域
+            </div>
             <div id="desk">
             </div>
         </div>
@@ -19,52 +24,6 @@
 
 
 <script src="js/jquery-1.11.3.js"></script>
-<script>
-    $("#button").on("click",function(){
-//        为dom添加img 拖拽对象
-        var input=$("input").val();
-        if(input){
-            console.log(input);
-        }
-        var html="";
-        for(var i=0;i<input;i++){
-            html+=`<img src="img/chair.png"  class="src"  id="p${i}"/>`
-
-        }
-        console.log(html);
-        $('#chairs').append(html);
-
-//        为img添拖拽事件
-        var srcList = document.querySelectorAll('.src');//找到全部img元素
-        for(var i=0;i<srcList.length;i++){
-            srcList[i].style.left="40%";
-            console.log(document.getElementById("p"+i));
-            document.getElementById("p"+i).ondragstart=function(e){
-                offsetX= e.offsetX;
-                offsetY= e.offsetY;
-                console.log(e.target.id+'开始拖动');
-                //记录刚一拖动时，鼠标在飞机上的偏移量
-                console.log(offsetX+"-"+offsetY);
-            };
-            document.getElementById("p"+i).ondrag=function(e){
-                console.log(e.target.id+'拖动中');
-                var x= e.pageX;
-                var y= e.pageY;
-                console.log(x+'-'+y);
-                //drag事件最后一刻，无法读取鼠标的坐标，pageX和pageY都变为0
-                if(x==0 && y==0){
-                    return; //不处理拖动最后一刻X和Y都为0的情形
-                }
-                x-=offsetX;
-                y-=offsetY;
-                e.target.style.left=x+'px';
-                e.target.style.top=y+'px';
-            };
-            document.getElementById("p"+i).ondragend=function(e){
-                console.log(e.target.id+'拖动结束');
-            }
-        }
-    });
-</script>
+<script src="js/desk1.js"></script>
 </body>
 </html>  

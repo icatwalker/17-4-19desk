@@ -1,0 +1,103 @@
+body{
+  margin:0;
+  position: relative;
+}
+
+.img{
+  width:200px;
+  height:200px;
+  position:absolute;
+  background: url(../img/chair.png) no-repeat;
+  background-position: top center;
+  background-size: cover;
+  /*height:100px;*/
+  /*border-radius: 50px;*/
+}
+
+.container{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  //width:1500px;
+  margin:0 auto;
+  //margin改后需要 在 pageY中做相应调整
+  &:before{
+    content: "";
+    display: table;
+  }
+  #workSpace{
+    position: relative;
+    margin:0 auto;
+    #mother,#motherBackground{
+      left:-300px;
+      top:0;
+      z-index: 10;
+    }
+
+    //桌子及 内部内容 相对于 chariarea
+    #chairsArea{
+      position: relative;
+      width:1200px;
+      height:800px;
+      background: #2E7555;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+
+      .src>span{
+        background: #FEC6AF;
+        position: absolute;
+        text-align: center;
+        height:40px;
+        width:40px;
+        top:0;
+        left:50%;
+        line-height: 40px;
+        border-radius: 20px;
+      }
+      .src>.people{
+        position: relative;
+        top:0;
+        left:0;
+        z-index: 11;
+        color: white;
+        width:100px;
+        height:100px;
+        background: url(../img/people.png) no-repeat;
+        background-position: top center;
+        background-size: cover;
+      }
+      .title{
+        position: absolute;
+
+        //height:100px;
+        font-size: 50px;
+      }
+      #desk{
+        width:800px;
+        height:500px;
+        border-radius: 250px;
+        background-color: cadetblue;
+      }
+  }
+  }
+  #people{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 300px;
+    height:800px;
+    background: #00688F;
+    margin-right: 20px;
+    .people{
+      color: white;
+      width:100px;
+      height:100px;
+      background: url(../img/people.png) no-repeat;
+      background-position: top center;
+      background-size: cover;
+    }
+
+  }
+//结尾
+}

@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  position: relative;
+}
+.img {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background: url(../img/chair.png) no-repeat;
+  background-position: top center;
+  background-size: cover;
+  /*height:100px;*/
+  /*border-radius: 50px;*/
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.container:before {
+  content: "";
+  display: table;
+}
+.container #workSpace {
+  position: relative;
+  margin: 0 auto;
+}
+.container #workSpace #mother,
+.container #workSpace #motherBackground {
+  left: -300px;
+  top: 0;
+  z-index: 10;
+}
+.container #workSpace #chairsArea {
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  background: #2E7555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container #workSpace #chairsArea .src > span {
+  background: #FEC6AF;
+  position: absolute;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  top: 0;
+  left: 50%;
+  line-height: 40px;
+  border-radius: 20px;
+}
+.container #workSpace #chairsArea .src > .people {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  color: white;
+  width: 100px;
+  height: 100px;
+  background: url(../img/people.png) no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+.container #workSpace #chairsArea .title {
+  position: absolute;
+  font-size: 50px;
+}
+.container #workSpace #chairsArea #desk {
+  width: 800px;
+  height: 500px;
+  border-radius: 250px;
+  background-color: cadetblue;
+}
+.container #people {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 800px;
+  background: #00688F;
+  margin-right: 20px;
+}
+.container #people .people {
+  color: white;
+  width: 100px;
+  height: 100px;
+  background: url(../img/people.png) no-repeat;
+  background-position: top center;
+  background-size: cover;
+}

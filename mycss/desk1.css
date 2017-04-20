@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  position: relative;
+}
+img {
+  width: 300px;
+  position: absolute;
+  /*height:100px;*/
+  /*border-radius: 50px;*/
+}
+.container {
+  width: 1500px;
+  margin: 100px auto;
+}
+.container:before {
+  content: "";
+  display: table;
+}
+.container #workSpace {
+  margin: 0 auto;
+}
+.container #workSpace #mother,
+.container #workSpace #motherBackground {
+  left: 200px;
+  top: 0;
+  z-index: 10;
+}
+.container #workSpace #chairsArea {
+  position: relative;
+  width: 1500px;
+  height: 1000px;
+  background: #2E7555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container #workSpace #chairsArea .title {
+  position: absolute;
+  font-size: 50px;
+}
+.container #workSpace #chairsArea img {
+  position: absolute;
+}
+.container #workSpace #chairsArea #desk {
+  width: 1000px;
+  height: 500px;
+  border-radius: 250px;
+  background-color: cadetblue;
+}

@@ -1,0 +1,54 @@
+body{
+  margin:0;
+  position: relative;
+}
+
+img{
+  width:300px;
+  position:absolute;
+  /*height:100px;*/
+  /*border-radius: 50px;*/
+}
+.container{
+  width:1500px;
+  margin:100px auto;
+  //margin改后需要 在 pageY中做相应调整
+  &:before{
+    content: "";
+    display: table;
+  }
+  #workSpace{
+    margin:0 auto;
+    #mother,#motherBackground{
+      left:200px;
+      top:0;
+      z-index: 10;
+    }
+
+    //桌子及 内部内容 相对于 chariarea
+    #chairsArea{
+      position: relative;
+      width:1500px;
+      height:1000px;
+      background: #2E7555;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      .title{
+        position: absolute;
+
+        //height:100px;
+        font-size: 50px;
+      }
+      img{position: absolute}
+      #desk{
+
+        width:1000px;
+        height:500px;
+        border-radius: 250px;
+        background-color: cadetblue;
+      }
+  }
+  }
+//结尾
+}

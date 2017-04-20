@@ -80,6 +80,7 @@
             srcList[i].style.left="40%";
             console.log(document.getElementById("p"+i));
             document.getElementById("p"+i).ondragstart=function(e){
+                e.target.style.width=300+"px";
                 offsetX= e.offsetX;
                 offsetY= e.offsetY;
                 console.log(e.target.id+'开始拖动');
@@ -88,6 +89,7 @@
             };
             document.getElementById("p"+i).ondrag=function(e){
                 console.log(e.target.id+'拖动中');
+                e.target.style.width=300+"px";
                 var x= e.pageX;
                 var y= e.pageY;
                 console.log(x+'-'+y);
@@ -97,6 +99,7 @@
                 }
                 x-=offsetX;
                 y-=offsetY;
+
                 e.target.style.left=x+'px';
                 e.target.style.top=y+'px';
             };
