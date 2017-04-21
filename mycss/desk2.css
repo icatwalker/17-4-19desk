@@ -41,7 +41,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.container #workSpace #chairsArea .src > span {
+.container #workSpace #chairsArea .chair > span {
   background: #FEC6AF;
   position: absolute;
   text-align: center;
@@ -52,7 +52,7 @@ body {
   line-height: 40px;
   border-radius: 20px;
 }
-.container #workSpace #chairsArea .src > .people {
+.container #workSpace #chairsArea .chair > .people {
   position: relative;
   top: 0;
   left: 0;
@@ -84,6 +84,8 @@ body {
   margin-right: 20px;
 }
 .container #people .people {
+  position: static;
+  z-index: 20;
   color: white;
   width: 100px;
   height: 100px;
