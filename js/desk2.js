@@ -3,15 +3,19 @@ $(function() {
     //console.log($("#people .people")[1]);
     //for(var i=0;i<=$("#people .people").length;i++){
     //    $("#people .people")[i].css({"top":100*i+"px"});
+
     //}
     $( "#mother" ).draggable({
         start: function() {
-
+            console.log(1);
         },
         drag: function() {
         },
         stop: function() {
-            var elem=`<div   class="chair img" id=${"d"+flag++}  ><span>${flag}号</span></div>`;
+
+            //var elem=`<div   class="chair img" id=${"d"+flag++}  ><span>${flag}号</span></div>`;
+            var elem="<div class='chair img' id="+"d"+flag++ +"><span>"+flag+"号</span></div>";
+
             var id1=flag;
             id1--;
             console.log("id："+id1);
@@ -80,5 +84,9 @@ $(function() {
 
         }
     });
+
+
+    //双击击号牌修改
+
 
 });

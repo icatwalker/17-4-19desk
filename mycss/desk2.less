@@ -15,9 +15,10 @@ body{
 }
 
 .container{
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  width:1200px;
+  //display:flex;
+  //align-items: center;
+  //justify-content: center;
   //width:1500px;
   margin:0 auto;
   //margin改后需要 在 pageY中做相应调整
@@ -43,7 +44,9 @@ body{
       display:flex;
       align-items: center;
       justify-content: center;
-
+      .chair{
+        z-index: 10;
+      }
       .chair>span{
         background: #FEC6AF;
         position: absolute;
@@ -78,6 +81,11 @@ body{
         height:500px;
         border-radius: 250px;
         background-color: cadetblue;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-400px,-250px);
+        -ms-transform: translate(-400px,-250px);
       }
   }
   }

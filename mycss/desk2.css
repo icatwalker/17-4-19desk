@@ -13,9 +13,7 @@ body {
   /*border-radius: 50px;*/
 }
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 1200px;
   margin: 0 auto;
 }
 .container:before {
@@ -40,6 +38,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.container #workSpace #chairsArea .chair {
+  z-index: 10;
 }
 .container #workSpace #chairsArea .chair > span {
   background: #FEC6AF;
@@ -73,6 +74,11 @@ body {
   height: 500px;
   border-radius: 250px;
   background-color: cadetblue;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-400px, -250px);
+  -ms-transform: translate(-400px, -250px);
 }
 .container #people {
   position: absolute;
