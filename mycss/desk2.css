@@ -2,7 +2,8 @@ body {
   margin: 0;
   position: relative;
 }
-.img {
+.img,
+.trash_img {
   width: 200px;
   height: 200px;
   position: absolute;
@@ -11,6 +12,12 @@ body {
   background-size: cover;
   /*height:100px;*/
   /*border-radius: 50px;*/
+}
+.trash_img {
+  width: 150px;
+  height: 150px;
+  background: url(../img/trash.png) no-repeat;
+  background-size: contain;
 }
 .container {
   width: 1200px;
@@ -25,10 +32,15 @@ body {
   margin: 0 auto;
 }
 .container #workSpace #mother,
-.container #workSpace #motherBackground {
+.container #workSpace #motherBackground,
+.container #workSpace #trash {
   left: -300px;
   top: 0;
   z-index: 10;
+}
+.container #workSpace #trash {
+  top: 250px;
+  left: -280px;
 }
 .container #workSpace #chairsArea {
   position: relative;
@@ -42,8 +54,9 @@ body {
 .container #workSpace #chairsArea .chair {
   z-index: 10;
 }
-.container #workSpace #chairsArea .chair > span {
-  background: #FEC6AF;
+.container #workSpace #chairsArea .chair > input {
+  background: #93CFE7;
+  color: white;
   position: absolute;
   text-align: center;
   height: 40px;
@@ -57,7 +70,7 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  z-index: 11;
+  z-index: 20;
   color: white;
   width: 100px;
   height: 100px;
@@ -80,6 +93,13 @@ body {
   transform: translate(-400px, -250px);
   -ms-transform: translate(-400px, -250px);
 }
+.container #workSpace #chairsArea #desk .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 60px;
+}
 .container #people {
   position: absolute;
   top: 0;
@@ -90,6 +110,7 @@ body {
   margin-right: 20px;
 }
 .container #people .people {
+  float: left;
   position: static;
   z-index: 20;
   color: white;
