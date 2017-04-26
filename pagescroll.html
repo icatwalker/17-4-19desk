@@ -11,6 +11,8 @@
 <div class="div">
     <div>
         <button class="btn1">100多</button>
+        <button class="btn2">开个窗口</button>
+
     </div>
 </div>
 
@@ -25,8 +27,25 @@
                 console.log($(window).scrollTop());
             },200);
         });
+        $(".btn2").click(function(){
+            window.open();
+        });
 
 });
+window.pageXOffset=100;
+window.pageYOffset=100;
+
+    console.log(  "length:"+window.length);
+    console.log("-outerheight:"+window.outerHeight);
+    console.log("-outerwidth:"+window.outerWidth);
+    console.log( "-pageXOffset:"+window.pageXOffset);
+    console.log("-pageYOffset:"+window.pageYOffset);
+    console.log("-screen:"+window.screen);
+    console.log("-top:"+window.top);
+    console.log("-screenLeft:"+window.screenLeft);
+    console.log("-screenTop:"+window.screenTop);
+    console.log("-screenX:"+window.screenX);
+    console.log("-screenY:"+window.screenY);
 
 </script>
 

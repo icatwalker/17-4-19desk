@@ -59,9 +59,10 @@ body{
       justify-content: center;
       .chair{
         z-index: 10;
+        box-sizing: border-box;
       }
       .chair>input{
-        background: #93CFE7;
+        background: #DC8526;
         color:white;
         position: absolute;
         text-align: center;
@@ -69,13 +70,22 @@ body{
         width:100px;
         bottom:0;
         left:20%;
-        line-height: 40px;
+        line-height: 20px;
         border-radius: 20px;
       }
       .chair>.people{
+        cursor: pointer;
+        >div{
+          position: relative;
+          top:50px;
+          span{
+            display:block;
+          }
+        }
         position: relative;
         top:0;
         left:0;
+        font-size: 10px;
         z-index: 20;
         color: white;
         width:100px;
@@ -111,6 +121,8 @@ body{
       }
   }
   }
+
+
   #people{
     position: absolute;
     top:0;
@@ -120,8 +132,25 @@ body{
     background: #00688F;
     margin-right: 20px;
     .people{
+      cursor: pointer;
+      >div{
+        position: relative;
+        top:50px;
+        span{
+          border-left: solid 1px;
+          display:block;
+          background: rgba(255,0,0,.3);
+        }
+        span:first-child{
+          background: rgba(0,255,0,.3);
+        }
+        span:last-child{
+          background: rgba(0,0,255,.3);
+        }
+      }
+      font-size: 10px;
       float: left;
-      position: static;
+      //position: static;
       z-index: 20;
       color: white;
       width:100px;

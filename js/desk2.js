@@ -136,6 +136,7 @@ $("button.btn").on("click",function(){
         success:function(data){
             console.log("数据传输成功");
             console.log(data);
+
         }
     });
 

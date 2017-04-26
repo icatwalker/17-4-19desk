@@ -53,9 +53,10 @@ body {
 }
 .container #workSpace #chairsArea .chair {
   z-index: 10;
+  box-sizing: border-box;
 }
 .container #workSpace #chairsArea .chair > input {
-  background: #93CFE7;
+  background: #DC8526;
   color: white;
   position: absolute;
   text-align: center;
@@ -63,13 +64,15 @@ body {
   width: 100px;
   bottom: 0;
   left: 20%;
-  line-height: 40px;
+  line-height: 20px;
   border-radius: 20px;
 }
 .container #workSpace #chairsArea .chair > .people {
+  cursor: pointer;
   position: relative;
   top: 0;
   left: 0;
+  font-size: 10px;
   z-index: 20;
   color: white;
   width: 100px;
@@ -77,6 +80,13 @@ body {
   background: url(../img/people.png) no-repeat;
   background-position: top center;
   background-size: cover;
+}
+.container #workSpace #chairsArea .chair > .people > div {
+  position: relative;
+  top: 50px;
+}
+.container #workSpace #chairsArea .chair > .people > div span {
+  display: block;
 }
 .container #workSpace #chairsArea .title {
   position: absolute;
@@ -110,8 +120,9 @@ body {
   margin-right: 20px;
 }
 .container #people .people {
+  cursor: pointer;
+  font-size: 10px;
   float: left;
-  position: static;
   z-index: 20;
   color: white;
   width: 100px;
@@ -119,4 +130,19 @@ body {
   background: url(../img/people.png) no-repeat;
   background-position: top center;
   background-size: cover;
+}
+.container #people .people > div {
+  position: relative;
+  top: 50px;
+}
+.container #people .people > div span {
+  border-left: solid 1px;
+  display: block;
+  background: rgba(255, 0, 0, 0.3);
+}
+.container #people .people > div span:first-child {
+  background: rgba(0, 255, 0, 0.3);
+}
+.container #people .people > div span:last-child {
+  background: rgba(0, 0, 255, 0.3);
 }
