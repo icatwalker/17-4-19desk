@@ -115,17 +115,29 @@ $("button.btn").on("click",function(){
     console.log("提交");
    console.log($("#chairsArea>.chair"));
     var listItem=$("#chairsArea>.chair");
+    var inputValue=$("#chairsArea>.chair>input");
     var chairCount=listItem.length;
 
     var list=[];
     for(var i=0;i<chairCount;i++){
         list[i]={
-            "id":       listItem[i].id,"top":listItem[i].style.top,
+            "id":       listItem[i].id,
+            "top":listItem[i].style.top,
             "left":     listItem[i].style.left,
-            "chairName":listItem[i]
+            "chairName":$("#chairsArea>.chair>input")[i].value
         }
     }
     console.log(JSON.stringify(list));
+    $.ajax({
+        url:"data/1.php",
+        type:"post",
+        data:list,
+        datatype:"text",
+        success:function(data){
+            console.log("数据传输成功");
+            console.log(data);
+        }
+    });
 
 });
 
