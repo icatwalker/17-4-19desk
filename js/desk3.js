@@ -25,18 +25,18 @@ $(function() {
             $.each(data,function(i){
                 //console.log(data[i].userid+"-"+data[i].telephoneNum+"-"+data[i].partment+"-"+data[i].userName);
                 html+="<div class='people' data-userId="+data[i].userid+" data-tel="+data[i].telephoneNum+" data-part="+
-                data[i].partment+" data-part="+data[i].userName +"><div><span>姓名："+data[i].userName+"</span><span>电话；"+
-                   data[i].telephoneNum+ "</span><span>部门："+data[i].partment+"</span></div></div>";
+                data[i].partment+" data-part="+data[i].userName +"><div><span>姓名:"+data[i].userName+"</span><span>部门:"
+                +data[i].partment+ "</span><span>"+data[i].telephoneNum+"</span></div></div>";
             });
             $("#people").append(html);
+            sortElement("people","people",4,100);
             $(".people").draggable({//当拖动people时候 作为可以降落
-                start:function(){
+                drag:function(){
                     //刚拖拽的时候将chair的data-guid属性清空
-
                     peopleName = $(this).html();
                     pElement = $(this);
                     pElement.parent().css({"border":0});
-                    pElement.css({"position":"absolute"});
+                    //pElement.css({"position":"absolute","top":Ptop,"left":Pleft});
                     //当拖动people时候 找到父元素data-guid清空，避免Chair 名字重复
                     $(this).parent().attr("data-guid","");
                     $(".chair").droppable({
@@ -48,48 +48,27 @@ $(function() {
                                 .addClass("ui-state-highlight")
                                 .attr("data-guid", peopleName)
                                 .append(pElement)
+                                .css({"border":"1px solid #F9DD34"})
                                 .children(".people")
+                                .css({"position":"absolute","top":"50px","left":"50px"})
                                 .prev(".people")
-                                .appendTo("#people").css({"position":"static"});
-                            //.css({"position":"absolute"});
-                            //$("#people .people").draggable();
-                            //.css({"position":"absolute","top":100,"left":150});
-                            //.css({"position":"absolute","top":400+NUM++*100,"left":0});
+                                .appendTo("#people");
                         }
                     });
                     $("#people").droppable({
                         drop: function (event, ui) {
                                 //当降落时清空原来座位上的人名
                             pElement
-                                .appendTo("#people").css({"position":"static"});
+                                .appendTo("#people");
+                            sortElement("people","people",4,100);
                         }
 
                     });
-                },
-                stop:function(){
-                    //NUM=1;
-                    if(pElement.parent().attr("class").indexOf("chair")!=-1){
-                        console.log("进去chair");
-                        CHAIR.css({"border":"1px solid #F9DD34"});
-                        pElement.css({"position":"absolute","top":"50px","left":"50px"});
-                    }
-                    else
-                    if(pElement.parent().attr("id")=="people"){
-                        //pElement.css({"position":"absolute"});
-                        console.log("进入people");
-                        pElement.css({"position":"static"});
-                    }
-
-                    //for(var i=0;i<=$("#people .people").length;i++){
-                    //    $("#people .people")[i].css("top",50+i*200);
-                    //}
-
                 }
             });
 
         }
     });
-
 });
 $("button.btn").on("click",function(){
     console.log("提交");

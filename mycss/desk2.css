@@ -69,9 +69,7 @@ body {
 }
 .container #workSpace #chairsArea .chair > .people {
   cursor: pointer;
-  position: relative;
-  top: 0;
-  left: 0;
+  position: absolute;
   font-size: 10px;
   z-index: 20;
   color: white;
@@ -121,7 +119,6 @@ body {
 }
 .container #people .people {
   cursor: pointer;
-  font-size: 10px;
   float: left;
   z-index: 20;
   color: white;
@@ -133,9 +130,10 @@ body {
 }
 .container #people .people > div {
   position: relative;
-  top: 50px;
+  top: 55px;
 }
 .container #people .people > div span {
+  font-size: 10px;
   border-left: solid 1px;
   display: block;
   background: rgba(255, 0, 0, 0.3);
