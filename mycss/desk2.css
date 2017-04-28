@@ -1,55 +1,45 @@
 body {
   margin: 0;
+  padding: 0;
   position: relative;
 }
-.img,
-.trash_img {
-  width: 200px;
-  height: 200px;
+.img {
+  width: 8.5rem;
+  height: 8.5rem;
   position: absolute;
   background: url(../img/chair.png) no-repeat;
   background-position: top center;
   background-size: cover;
+  z-index: 10;
   /*height:100px;*/
   /*border-radius: 50px;*/
 }
 .trash_img {
-  width: 150px;
-  height: 150px;
+  width: 6.8rem;
+  height: 6.8rem;
+  z-index: 10;
+  transform: translate(8.5rem, 0);
+  -ms-transform: translate(8.5rem, 0);
   background: url(../img/trash.png) no-repeat;
+  background-position: top center;
   background-size: contain;
 }
-.container {
-  width: 1200px;
-  margin: 0 auto;
-}
-.container:before {
+.container:after {
   content: "";
-  display: table;
+  display: block;
+  clear: both;
 }
 .container #workSpace {
+  overflow: hidden;
   position: relative;
-  margin: 0 auto;
-}
-.container #workSpace #mother,
-.container #workSpace #motherBackground,
-.container #workSpace #trash {
-  left: -300px;
-  top: 0;
-  z-index: 10;
-}
-.container #workSpace #trash {
-  top: 250px;
-  left: -280px;
 }
 .container #workSpace #chairsArea {
+  box-sizing: border-box;
+  float: left;
+  z-index: 0;
   position: relative;
-  width: 1200px;
-  height: 800px;
+  width: 83rem;
   background: #2E7555;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .container #workSpace #chairsArea .chair {
   z-index: 10;
@@ -91,15 +81,17 @@ body {
   font-size: 50px;
 }
 .container #workSpace #chairsArea #desk {
-  width: 800px;
-  height: 500px;
-  border-radius: 250px;
+  box-sizing: border-box;
+  width: 50rem;
+  height: 25rem;
+  border-radius: 6.25rem;
   background-color: cadetblue;
+  border: 1.25rem solid #d8d8d8;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-400px, -250px);
-  -ms-transform: translate(-400px, -250px);
+  transform: translate(-25rem, -12.5rem);
+  -ms-transform: translate(-25rem, -12.5rem);
 }
 .container #workSpace #chairsArea #desk .btn {
   position: absolute;
@@ -108,16 +100,29 @@ body {
   width: 100px;
   height: 60px;
 }
-.container #people {
+.container #workSpace #rightArea {
+  box-sizing: border-box;
+  width: 17rem;
+  position: relative;
+  background: rgba(255, 0, 0, 0.5);
+  margin-left: 83rem;
+}
+.container #workSpace #rightArea #mother,
+.container #workSpace #rightArea #motherBackground {
+  top: 0;
+  left: 0;
+}
+.container #workSpace #people {
+  overflow: hidden;
+  width: 17rem;
   position: absolute;
   top: 0;
   right: 0;
-  width: 300px;
   height: 800px;
   background: #00688F;
   margin-right: 20px;
 }
-.container #people .people {
+.container #workSpace #people .people {
   cursor: pointer;
   float: left;
   z-index: 20;
@@ -128,19 +133,19 @@ body {
   background-position: top center;
   background-size: cover;
 }
-.container #people .people > div {
+.container #workSpace #people .people > div {
   position: relative;
   top: 55px;
 }
-.container #people .people > div span {
+.container #workSpace #people .people > div span {
   font-size: 10px;
   border-left: solid 1px;
   display: block;
   background: rgba(255, 0, 0, 0.3);
 }
-.container #people .people > div span:first-child {
+.container #workSpace #people .people > div span:first-child {
   background: rgba(0, 255, 0, 0.3);
 }
-.container #people .people > div span:last-child {
+.container #workSpace #people .people > div span:last-child {
   background: rgba(0, 0, 255, 0.3);
 }

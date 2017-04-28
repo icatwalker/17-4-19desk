@@ -1,7 +1,9 @@
 $(function() {
     //$("#workSpace").draggable();
     //$("#people").draggable();
-
+    var chairAreaWidth=parseFloat(document.getElementById("chairsArea").offsetWidth);
+    var img_chair_width=parseFloat(document.getElementById("mother").offsetWidth);
+    console.log(chairAreaWidth);
     flag=0;
     //console.log($("#people .people")[1]);
     //for(var i=0;i<=$("#people .people").length;i++){
@@ -21,11 +23,13 @@ $(function() {
             var id1=flag;
             id1--;
             console.log("id："+id1);
-            console.log("mother-left:"+mother.style.left);
+            //console.log("mother-right:"+mother.style.right);
             $("#chairsArea").append(elem);
             //200为起始位置的200px,300为图片宽度
-            mother.style.left=parseFloat(mother.style.left)-100;
-            $("#d"+id1).css("left",mother.style.left).css("top",mother.style.top).draggable({
+            var mother_left=parseFloat(mother.style.left);
+            console.log(chairAreaWidth);
+            console.log(mother.style.left);
+            $("#d"+id1).css("left",chairAreaWidth+mother_left+"px").css("top",mother.style.top).draggable({
                 drag:function(){
                     CHAR1=$(this);
                     $("#trash").droppable({
@@ -37,7 +41,7 @@ $(function() {
                     });
                 }
             }).bind(this);
-            mother.style.left= -300+"px";
+            mother.style.left=0;
             mother.style.top=0;
 
         }

@@ -1,62 +1,70 @@
 body{
   margin:0;
+  padding:0;
   position: relative;
 }
+@left_width:83rem;
+@right_width:100-@left_width;
+@desk_width:50rem;
+@desk_height:@desk_width*.5;
+@desk_border_width:@desk_height*.05;
 
-.img,.trash_img{
-  width:200px;
-  height:200px;
+.img{
+  width:@right_width*.5;
+  height:@right_width*.5;
   position:absolute;
   background: url(../img/chair.png) no-repeat;
   background-position: top center;
   background-size: cover;
+  z-index: 10;
   /*height:100px;*/
   /*border-radius: 50px;*/
 }
 .trash_img{
-  width:150px;
-  height:150px;
+  width:@right_width*.4;
+  height:@right_width*.4;
+  z-index: 10;
+  transform: translate(@right_width*.5,0);
+  -ms-transform: translate(@right_width*.5,0);
   background: url(../img/trash.png) no-repeat;
+  background-position: top center;
   background-size: contain;
   &:hover{
-
   }
 }
 
 .container{
-  width:1200px;
+  //width:100rem;
   //display:flex;
   //align-items: center;
   //justify-content: center;
   //width:1500px;
-  margin:0 auto;
   //margin改后需要 在 pageY中做相应调整
-  &:before{
-    content: "";
-    display: table;
-  }
+  //&:before{
+  //  content: "";
+  //  display: table;
+  //}
+  &:after{
+    content:"";
+    display:block;
+    clear: both;
+}
   #workSpace{
+    //width:100rem;
+    overflow: hidden;//解决白边问题
     position: relative;
-    margin:0 auto;
-    #mother,#motherBackground,#trash{
-      left:-300px;
-      top:0;
-      z-index: 10;
-    }
-    #trash{
-      top:250px;
-      left:-280px;
-    }
-
     //桌子及 内部内容 相对于 chariarea
     #chairsArea{
+      box-sizing: border-box;
+      float:left;
+      z-index: 0;
       position: relative;
-      width:1200px;
-      height:800px;
+      width:@left_width;
+      //height:800px;
       background: #2E7555;
-      display:flex;
-      align-items: center;
-      justify-content: center;
+      //display:flex;
+      //align-items: center;
+      //justify-content: center;
       .chair{
         z-index: 10;
         box-sizing: border-box;
@@ -99,15 +107,17 @@ body{
         font-size: 50px;
       }
       #desk{
-        width:800px;
-        height:500px;
-        border-radius: 250px;
+        box-sizing: border-box;
+        width:@desk_width;
+        height:@desk_height;
+        border-radius: .25*@desk_height;
         background-color: cadetblue;
+        border:@desk_border_width solid #D8D8D8;
         position: absolute;
         left:50%;
         top:50%;
-        transform:translate(-400px,-250px);
-        -ms-transform: translate(-400px,-250px);
+        transform:translate(-.5*@desk_width,-.5*@desk_height);
+        -ms-transform: translate(-.5*@desk_width,-.5*@desk_height);
         .btn{
           position: absolute;
           top:50%;
@@ -118,45 +128,61 @@ body{
         }
       }
   }
-  }
-
-
-  #people{
-    position: absolute;
-    top:0;
-    right:0;
-    width: 300px;
-    height:800px;
-    background: #00688F;
-    margin-right: 20px;
-    .people{
-      cursor: pointer;
-      >div{
-        position: relative;
-        top:55px;
-        span{
-          font-size: 10px;
-          border-left: solid 1px;
-          display:block;
-          background: rgba(255,0,0,.3);
-        }
-        span:first-child{
-          background: rgba(0,255,0,.3);
-        }
-        span:last-child{
-          background: rgba(0,0,255,.3);
-        }
+    #rightArea{
+      box-sizing: border-box;
+      width:@right_width;
+      //height:800px;
+      position: relative;
+      background: rgba(255,0,0,.5);
+      margin-left:@left_width;
+      //transform: translate(20rem,0);
+      //-ms-transform: translate(20rem,0);
+      #mother,#motherBackground{
+        top:0;
+        left:0;
       }
-      //font-size: 10px;
-      float: left;
-      //position: static;
-      z-index: 20;
-      color: white;
-      width:100px;
-      height:100px;
-      background: url(../img/people.png) no-repeat;
-      background-position: top center;
-      background-size: cover;
+      #trash{
+      }
+    }
+    #people{
+      overflow: hidden;
+      width:@right_width;
+      position: absolute;
+      top:0;
+      right:0;
+      height:800px;
+      background: #00688F;
+      margin-right: 20px;
+      .people{
+        cursor: pointer;
+        >div{
+          position: relative;
+          top:55px;
+          span{
+            font-size: 10px;
+            border-left: solid 1px;
+            display:block;
+            background: rgba(255,0,0,.3);
+          }
+          span:first-child{
+            background: rgba(0,255,0,.3);
+          }
+          span:last-child{
+            background: rgba(0,0,255,.3);
+          }
+        }
+        //font-size: 10px;
+        float: left;
+        //position: static;
+        z-index: 20;
+        color: white;
+        width:100px;
+        height:100px;
+        background: url(../img/people.png) no-repeat;
+        background-position: top center;
+        background-size: cover;
+      }
+
     }
 
   }

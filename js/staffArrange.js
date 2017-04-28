@@ -53,6 +53,7 @@ $(function() {
                                 .css({"position":"absolute","top":"50px","left":"50px"})
                                 .prev(".people")
                                 .appendTo("#people");
+                                sortElement("people","people",4,100);
                         }
                     });
                     $("#people").droppable({
