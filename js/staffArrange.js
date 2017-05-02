@@ -11,7 +11,7 @@ $(function() {
             var html='';
             $.each(data,function(i){
                 //console.log(data[i].id+"-"+data[i].top+"-"+data[i].left+"-"+data[i].chairName);
-                html+="<div class='chair img' id="+data[i].id+" style=positon:absolute;left:"+data[i].left+";top:"+data[i].top+"><input type='text'  disabled value="+data[i].chairName+"></div>";
+                html+="<div class='chair img iconfont icon-zuowei' id="+data[i].id+" style=positon:absolute;left:"+data[i].left+";top:"+data[i].top+"><input type='text'  disabled value="+data[i].chairName+"></div>";
             });
             $("#chairsArea").append(html);
         }
@@ -29,12 +29,13 @@ $(function() {
                 +data[i].partment+ "</span><span>"+data[i].telephoneNum+"</span></div></div>";
             });
             $("#people").append(html);
-            sortElement("people","people",4,100);
+            sortElement("people","people",5,100);
             $(".people").draggable({//当拖动people时候 作为可以降落
                 drag:function(){
                     //刚拖拽的时候将chair的data-guid属性清空
                     peopleName = $(this).html();
                     pElement = $(this);
+                    pElement.css({"position":"absolute","zIndex":12});
                     pElement.parent().css({"border":0});
                     //pElement.css({"position":"absolute","top":Ptop,"left":Pleft});
                     //当拖动people时候 找到父元素data-guid清空，避免Chair 名字重复
@@ -50,10 +51,10 @@ $(function() {
                                 .append(pElement)
                                 .css({"border":"1px solid #F9DD34"})
                                 .children(".people")
-                                .css({"position":"absolute","top":"50px","left":"50px"})
+                                .css({"position":"absolute","top":"0px","left":"0px"})
                                 .prev(".people")
                                 .appendTo("#people");
-                                sortElement("people","people",4,100);
+                                sortElement("people","people",5,100);
                         }
                     });
                     $("#people").droppable({
@@ -61,7 +62,7 @@ $(function() {
                                 //当降落时清空原来座位上的人名
                             pElement
                                 .appendTo("#people");
-                            sortElement("people","people",4,100);
+                            sortElement("people","people",5,100);
                         }
 
                     });

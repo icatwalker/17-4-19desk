@@ -13,13 +13,14 @@ $(function() {
     $( "#mother" ).draggable({
         start: function() {
             console.log(1);
+            $(this).css({"position":"absolute"});
         },
         drag: function() {
+
         },
         stop: function() {
-
             //var elem=`<div   class="chair img" id=${"d"+flag++}  ><span>${flag}号</span></div>`;
-            var elem="<div class='chair img' id="+"d"+flag++ +"><input type='text' value="+'d'+flag+"></div>";
+            var elem="<div class='chair img iconfont icon-zuowei' id="+"d"+flag++ +"><input type='text' value="+'d'+flag+"></div>";
             var id1=flag;
             id1--;
             console.log("id："+id1);
@@ -29,7 +30,7 @@ $(function() {
             var mother_left=parseFloat(mother.style.left);
             console.log(chairAreaWidth);
             console.log(mother.style.left);
-            $("#d"+id1).css("left",chairAreaWidth+mother_left+"px").css("top",mother.style.top).draggable({
+            $("#d"+id1).css({"left":chairAreaWidth+mother_left+"px","top":mother.style.top}).draggable({
                 drag:function(){
                     CHAR1=$(this);
                     $("#trash").droppable({
@@ -39,8 +40,14 @@ $(function() {
                             //event.target.remove();
                         }
                     });
+                    $("rightArea").droppable({
+                        drop: function (event, ui) {
+                            //当降落时清空原来座位上的人名
+                            //event.target.remove();
+                        }
+                    });
                 }
-            }).bind(this);
+            });
             mother.style.left=0;
             mother.style.top=0;
 
@@ -66,7 +73,7 @@ $(function() {
                         .append(pElement)
                         .children(".people")
                         .prev(".people")
-                        .appendTo("#people").css({"position":"static"});
+                        .appendTo("#people");
                         //.css({"position":"absolute"});
                         //$("#people .people").draggable();
                         //.css({"position":"absolute","top":100,"left":150});

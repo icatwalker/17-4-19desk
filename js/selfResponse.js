@@ -14,6 +14,7 @@
     var child_element=document.getElementById("workSpace").children;
     var child_count=document.getElementById("workSpace").children.length;
     //console.log(child_count);
+    document.getElementById("workSpace").style.height=ch+"px";
     for(var i=0;i<child_count;i++){
         //console.log(child_element[i]);
         child_element[i].style.height=ch+"px";
