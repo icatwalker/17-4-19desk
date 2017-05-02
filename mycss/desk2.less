@@ -56,8 +56,8 @@ body{
     //桌子及 内部内容 相对于 chariarea
     #chairsArea{
       box-sizing: border-box;
-      float:left;
-      z-index: 0;
+      //float:left;
+      z-index: -1;
       position: relative;
       width:@left_width;
       //height:800px;
@@ -150,7 +150,6 @@ body{
       position: absolute;
       top:0;
       right:0;
-      height:800px;
       background: #00688F;
       margin-right: 20px;
       .people{
@@ -174,7 +173,7 @@ body{
         //font-size: 10px;
         float: left;
         //position: static;
-        z-index: 20;
+        z-index: 1;
         color: white;
         width:100px;
         height:100px;

@@ -52,7 +52,7 @@ $(function() {
             //刚拖拽的时候将chair的data-guid属性清空
             peopleName = $(this).html();
             pElement = $(this);
-            pElement.css({"position":"absolute"});
+            pElement.css({"position":"absolute","zIndex":12});
             //当拖动people时候 找到父元素data-guid清空，避免Chair 名字重复
             $(this).parent().attr("data-guid","");
             $(".chair").droppable({
